@@ -36,7 +36,7 @@
 
             const loadExcelFile = async () => {
                 try {
-                    const response = await fetch('artikli.xlsx');
+                    const response = await fetch('artikli.xlsx?t=' + new Date().getTime());
                     if (!response.ok) throw new Error('Nije pronađen artikli.xlsx');
                     const arrayBuffer = await response.arrayBuffer();
                     const workbook = XLSX.read(arrayBuffer, { type: 'array' });
